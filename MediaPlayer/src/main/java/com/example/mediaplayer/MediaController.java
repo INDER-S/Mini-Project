@@ -27,8 +27,8 @@ public class MediaController {
         }
         mp=new MediaPlayer(m);
 
-//        mediaView.setMediaPlayer(mp);
-
+//       mediaView.setMediaPlayer(mp);
+// helloo
 
     }
 
