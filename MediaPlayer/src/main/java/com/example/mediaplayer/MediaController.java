@@ -27,10 +27,9 @@ public class MediaController {
         }
         mp=new MediaPlayer(m);
 
-//       mediaView.setMediaPlayer(mp);
-// helloo
 
     }
+
 
 
 
