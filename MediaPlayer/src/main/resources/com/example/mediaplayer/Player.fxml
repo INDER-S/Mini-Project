@@ -24,14 +24,14 @@
       </MenuBar>
       <HBox alignment="CENTER" layoutX="200.0" layoutY="354.0" prefHeight="46.0" prefWidth="200.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
          <children>
-            <Button fx:id="backwardmedia" mnemonicParsing="false" onAction="#backwardmed" text="Backward" />
-            <Button fx:id="playmedia" mnemonicParsing="false" onAction="#playpause" text="Play" />
-            <Button fx:id="forwardmedia" mnemonicParsing="false" onAction="#forwardmed" text="Forward" />
+            <Button fx:id="backwardmedia" mnemonicParsing="false" onAction="#backwardmed" />
+            <Button fx:id="playmedia" mnemonicParsing="false" onAction="#playpause" />
+            <Button fx:id="forwardmedia" mnemonicParsing="false" onAction="#forwardmed" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="360.0" prefHeight="40.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0">
          <children>
-            <SplitMenuButton alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#mediainfo" popupSide="RIGHT" prefHeight="26.0" prefWidth="99.0" text="Media Info">
+            <SplitMenuButton fx:id="mediainf" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#mediainfo" popupSide="RIGHT">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#pointfive" text="0.5x" />
                 <MenuItem mnemonicParsing="false" onAction="#normal" text="normal" />
@@ -40,10 +40,10 @@
             </SplitMenuButton>
          </children>
       </HBox>
-      <JFXSlider fx:id="slidermedia" layoutX="12.0" layoutY="338.0" majorTickUnit="10.0" prefHeight="33.0" prefWidth="567.0" showTickLabels="true" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="21.0" />
+      <JFXSlider fx:id="slidermedia" layoutX="17.0" layoutY="327.0" majorTickUnit="10.0" prefHeight="33.0" prefWidth="567.0" showTickLabels="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" />
       <HBox alignment="CENTER_RIGHT" layoutX="386.0" layoutY="354.0" prefHeight="46.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0">
          <children>
-            <JFXButton fx:id="mutemed" onAction="#mutemedia" prefHeight="25.6" prefWidth="52.0" text="Mute" />
+            <JFXButton fx:id="mutemed" onAction="#mutemedia" />
             <JFXSlider fx:id="volumeslider" prefHeight="14.0" prefWidth="62.0" />
          </children>
       </HBox>

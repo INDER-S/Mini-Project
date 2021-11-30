@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -53,6 +54,9 @@ public class MediaController implements Initializable {
     @FXML
     private Button mutemed;
 
+    @FXML
+    private SplitMenuButton mediainf;
+
     public File fl;
     public Media m;
 
@@ -69,7 +73,7 @@ public class MediaController implements Initializable {
             }
             mp = new MediaPlayer(m);
             mediaview.setMediaPlayer(mp);
-            MediaOpen mo = new MediaOpen(mp,playmedia,slidermedia,volumeslider);
+            MediaOpen mo = new MediaOpen(mp,playmedia,slidermedia,volumeslider,mutemed);
             mo.basic();
         } catch (Exception e) {
             e.printStackTrace();
@@ -156,14 +160,17 @@ public class MediaController implements Initializable {
     //intialization
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-      /* try {
-            playmedia.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/play.png"))));
+       try {
+            playmedia.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/pause.png"))));
             forwardmedia.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/forward.png"))));
             backwardmedia.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/backward.png"))));
+           mediainf.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/info.png"))));
+           mutemed.setGraphic(new ImageView(new Image(new FileInputStream("src/main/images/unmute.png"))));
+
         } catch(Exception e)
         {
             e.printStackTrace();
-        }*/
+        }
         slidermedia.setValue(0);
         volumeslider.setValue(100);
     }
