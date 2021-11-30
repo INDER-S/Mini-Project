@@ -4,22 +4,28 @@ import com.jfoenix.controls.JFXSlider;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+
+import java.io.FileInputStream;
 
 public class MediaOpen {
     public MediaPlayer mp;
     public Button playmedia;
     public JFXSlider slidermedia;
     public JFXSlider volumeslider;
-    MediaOpen(MediaPlayer player,Button btn,JFXSlider slider1, JFXSlider slider2 )
+    public Button mutemed;
+    MediaOpen(MediaPlayer player,Button btn,JFXSlider slider1, JFXSlider slider2 , Button mut)
     {
         this.mp=player;
         this.playmedia=btn;
         this.slidermedia=slider1;
         this.volumeslider=slider2;
+        this.mutemed=mut;
     }
     public void basic() {
         try {
@@ -29,11 +35,14 @@ public class MediaOpen {
                 slidermedia.setMax(mp.getMedia().getDuration().toMinutes());
 
                 slidermedia.setValue(0);
-
-                //setting play icon as we change song
-                playmedia.setText("Play");
-                //playmedia.setGraphic((new ImageView(new Image(new FileInputStream(src / icons / play.png)))));
-
+                try {
+                    //setting play icon as we change song
+                    //playmedia.setText("Play");
+                    playmedia.setGraphic((new ImageView(new Image(new FileInputStream("src/main/images/pause.png")))));
+                }catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
 
             });
             //tracking time of slider (listener on player)
@@ -63,6 +72,16 @@ public class MediaOpen {
                 @Override
                 public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                     mp.setVolume(volumeslider.getValue() / 100);
+                    try {
+                        if (volumeslider.getValue() > 0) {
+                            mutemed.setGraphic((new ImageView(new Image(new FileInputStream("src/main/images/unmute.png")))));
+                        } else {
+                            mutemed.setGraphic((new ImageView(new Image(new FileInputStream("src/main/images/mute.png")))));
+                        }
+                    }catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                 }
             });
         } catch (Exception e) {
