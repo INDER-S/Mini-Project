@@ -73,6 +73,10 @@ public class MediaController implements Initializable {
             }
             mp = new MediaPlayer(m);
             mediaview.setMediaPlayer(mp);
+            DoubleProperty width = mediaview.fitWidthProperty();
+            DoubleProperty height = mediaview.fitHeightProperty();
+            width.bind(Bindings.selectDouble(mediaview.sceneProperty(),"width"));
+            height.bind(Bindings.selectDouble(mediaview.sceneProperty(),"height"));
             MediaOpen mo = new MediaOpen(mp,playmedia,slidermedia,volumeslider,mutemed);
             mo.basic();
         } catch (Exception e) {
